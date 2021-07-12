@@ -1,3 +1,3 @@
 # React-Functional-class-style-code
 
-<img src="https://www.wikitechy.com/tutorials/react/img/reactjs-images/ReactJS-components-life-cycle.png">
+<img src="./src/at%2016.26.32.png">
