@@ -1,5 +1,4 @@
-import { computeHeadingLevel } from '@testing-library/react';
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import './App.css'
 function App() {
   return (
@@ -13,6 +12,8 @@ function App() {
   );
 }
 
+let funcStyle = 'color: blue';
+let funcId = 0;
 // function FuncComp({ initNumber }) {
 function FuncComp(props) {
   // let numberState = useState(props.initNumber);
@@ -25,7 +26,13 @@ function FuncComp(props) {
   // let setDate = dateState[1];
   const [_date, setDate] = useState((new Date()).toString());
 
+  // side Effect
+  useEffect(() => {
+    console.log('%cfunc => useEffect (componentDidMount && componentDidUpdate)' + (++funcId), funcStyle);
+    // document.title = number + ' : ' + _date;
+  });
   // console.log('numberState', numberState);
+  console.log('%cfunc => render' + (++funcId), funcStyle);
   return (
     <div className='container'>
       <h2>function style component</h2>
