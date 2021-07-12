@@ -1,3 +1,4 @@
+import { computeHeadingLevel } from '@testing-library/react';
 import React, { useState } from 'react'
 import './App.css'
 function App() {
@@ -45,13 +46,34 @@ function FuncComp(props) {
   );
 }
 
+let classStyle = 'color:red';
 class ClassComp extends React.Component {
   // state를 세팅 (초기화)
   state = {
     number: this.props.initNumber,
     date: (new Date()).toString(),
   }
+  componentWillMount() {
+    console.log('%cclass => componentWillMount', classStyle);
+  }
+  componentDidMount() {
+    console.log('%cclass => componentDidMount', classStyle);
+  }
+  shouldComponentUpdate(nextProps, nextState) {
+    // render를 호출할 필요가 있냐 없냐.. 성능과 연관있음
+    // true -> render 호출
+    // false -> render 호출 안해 !
+    console.log('%cclass => shouldComponentUpdate', classStyle);
+    return true;
+  }
+  componentWillUpdate(nextProps, nextState) {
+    console.log('%cclass => componentWillUpdate', classStyle);
+  }
+  componentDidUpdate(nextProps, nextState) {
+    console.log('%cclass => componentDidUpdate', classStyle);
+  }
   render() {
+    console.log('%cclass => render', classStyle);
     return (
       <div className='container'>
         <h2>class style component</h2>
